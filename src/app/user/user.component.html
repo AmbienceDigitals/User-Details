@@ -1,0 +1,131 @@
+<div class="container">
+    <form class="form-horizontal" role="form" [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <h1>Credit Card Payment</h1>
+  
+  
+        <div class="field is-horizontal">
+
+          <div class="field-label is-normal">
+            <label class="label" for="firstName">First Name</label>
+          </div>
+
+          <div class="field-body">
+            <div class="field">
+  
+              <div class="control">
+                <input class="input" type="text" placeholder="First Name" formControlName="firstName" [ngClass]="{ 'is-invalid': (firstName.dirty || firstName.touched) && firstName.errors }">
+                  <div *ngIf="!firstName.valid && (firstName.dirty || firstName.touched)" class="invalid-feedback">
+                    <div *ngIf="firstName.errors" class="button is-danger">There is something wrong with the name you provided.</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  
+          <div class="field is-horizontal">
+  
+            <div class="field-label is-normal">
+              <label class="label" for="lastName">Last Name</label>
+            </div>
+  
+            <div class="field-body">
+              <div class="field">
+  
+                <div class="control">
+                  <input class="input" type="text" placeholder="Last Name" formControlName="lastName" [ngClass]="{ 'is-invalid': (lastName.dirty || lastName.touched) && lastName.errors }">
+                    
+                  <div *ngIf="!lastName.valid && (lastName.dirty || lastName.touched)" class="invalid-feedback">
+                      <div *ngIf="lastName.errors" class="button is-danger">There is something wrong with the name you provided.</div>
+                  </div>
+  
+                </div>
+  
+              </div>
+  
+            </div>
+          </div>
+  
+         <div class="field is-horizontal">
+  
+            <div class="field-label is-normal">
+              <label class="label" for="email">Email</label>
+            </div>
+  
+            <div class="field-body">
+              <div class="field">
+  
+                <div class="control">
+                  <input class="input" type="email" formControlName="email" placeholder="e.g something@gmail.com" [ngClass]="{ 'is-invalid': email.errors  && (email.dirty || email.touched)}">
+                    
+                  <div *ngIf="!email.valid && (email.dirty || email.touched)" class="invalid-feedback">
+                    <div *ngIf="email.errors" class="button is-danger">Invalid email address.</div>
+                </div>
+  
+                </div>
+  
+              </div>
+  
+            </div>
+          </div> 
+  
+  
+        <div class="field is-horizontal">
+  
+          <div class="field-label is-normal">
+            <label class="label" for="monthlyAdvertisingBudget">Monthly Advertising Budget</label>
+          </div>
+  
+          <div class="field-body">
+            <div class="field">
+  
+              <div class="control">
+                <input class="input" type="number" formControlName="monthlyAdvertisingBudget" placeholder="123" [ngClass]="{ 'is-invalid': monthlyAdvertisingBudget.errors && (monthlyAdvertisingBudget.dirty || monthlyAdvertisingBudget.touched) }">
+                  
+                <div *ngIf="!monthlyAdvertisingBudget.valid && (monthlyAdvertisingBudget.dirty || monthlyAdvertisingBudget.touched)" class="invalid-feedback">
+                  <div *ngIf="monthlyAdvertisingBudget.errors" class="button is-danger">Input a valid value</div>
+              </div>
+  
+              </div>
+  
+            </div>
+  
+          </div>
+        </div>
+
+
+        <div class="field is-horizontal">
+  
+          <div class="field-label is-normal">
+            <label class="label" for="phoneNumber">Phone Number</label>
+          </div>
+  
+          <div class="field-body">
+            <div class="field">
+  
+              <div class="control">
+                <input class="input" type="tel" formControlName="phoneNumber" placeholder="123" [ngClass]="{ 'is-invalid': phoneNumber.errors && (phoneNumber.dirty || phoneNumber.touched) }">
+                  
+                <div *ngIf="!phoneNumber.valid && (phoneNumber.dirty || phoneNumber.touched)" class="invalid-feedback">
+                  <div *ngIf="phoneNumber.errors" class="button is-danger">Invalid Phone Number.</div>
+              </div>
+  
+              </div>
+  
+            </div>
+  
+          </div>
+        </div>
+  
+        <div class="field">
+          <div class="field-label">
+            <div *ngIf="paymentForm.invalid" class="button is-danger m-2 ml-3 err">{{errorMessage}}</div>
+            <button type="submit" class="button is-success m-2 ml-3 suc">Proceed</button>
+          </div>
+        </div>
+  
+      </fieldset>
+
+    </form>
+  </div>
